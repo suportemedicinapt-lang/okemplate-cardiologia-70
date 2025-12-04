@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/500.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+/* Design System for Medical/Cardiology Template */
+
+@layer base {
+  :root {
+    /* Core brand colors - Deep blue for trust, coral for heart */
+    --background: 210 20% 98%;
+    --foreground: 220 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    /* Primary: Deep medical blue */
+    --primary: 215 60% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 215 50% 35%;
+
+    /* Secondary: Soft coral/red for heart theme */
+    --secondary: 355 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 355 60% 65%;
+
+    /* Accent: Light blue-gray for backgrounds */
+    --accent: 210 30% 95%;
+    --accent-foreground: 220 30% 15%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 215 60% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(215 60% 25%) 0%, hsl(215 50% 35%) 50%, hsl(355 70% 55%) 100%);
+    --card-shadow: 0 4px 24px -4px hsl(220 30% 15% / 0.08);
+    --card-shadow-hover: 0 8px 32px -4px hsl(220 30% 15% / 0.12);
+    --text-gradient: linear-gradient(135deg, hsl(215 60% 25%) 0%, hsl(355 70% 55%) 100%);
+
+    /* Sidebar defaults */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 215 60% 60%;
+    --primary-foreground: 220 25% 8%;
+    --primary-light: 215 50% 70%;
+
+    --secondary: 355 70% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 355 60% 70%;
+
+    --accent: 220 25% 15%;
+    --accent-foreground: 210 20% 95%;
+
+    --muted: 220 25% 18%;
+    --muted-foreground: 210 15% 60%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 25% 20%;
+    --input: 220 25% 20%;
+    --ring: 215 60% 60%;
+
+    --hero-gradient: linear-gradient(135deg, hsl(215 60% 35%) 0%, hsl(215 50% 45%) 50%, hsl(355 70% 50%) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .placeholder-text {
+    @apply text-secondary font-medium;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
